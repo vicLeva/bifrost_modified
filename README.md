@@ -1,5 +1,16 @@
 # Bifrost
 
+## BQF paper experiment note
+
+`bifrost/src/Bifrost.cpp` (main executable) has been modified so that when compiled the main tool `bifrost` runs experiments on sea-water34M dataset (first available in [wiki](https://github.com/vicLeva/bqf/wiki/Experiments-details-and-protocol-for-BQF-paper-results), dataset has to be downloaded first).
+
+
+`bifrost/src/Bifrost.cpp` has 2 parts:
+ + first one (uncommented) is to build the index, write it in memory and measure times for building and querying
+ + second one (commented) is to load index in memory to query only a few sequences. By using `/usr/bin/time -v ./bifrost` from `build/`, one can obtain peak memory usage corresponding to the size of bifrost's index in memory.
+ 
+
+
 ### Parallel construction, indexing and querying of colored and compacted de Bruijn graphs
 
 * **Build**, **index**, **color** and **query** the compacted de Bruijn graph
